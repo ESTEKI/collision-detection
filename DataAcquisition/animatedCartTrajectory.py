@@ -16,11 +16,11 @@ omega = 2*np.pi*f
 tvec = np.arange(0, t, 0.05)
 xpoints = np.sin(omega*tvec)
 ypoints = np.cos(omega*tvec)
-
+ypoints = ypoints - 1;
 fig, ax = plt.subplots(figsize=(5, 5))
 plt.axis('equal')
-plt.xlim(-1, 1)
-plt.ylim(-1, 1)
+plt.xlim(-2, 2)
+plt.ylim(-2, 2)
 plt.xlabel('x-axis')
 plt.ylabel('y-axis')
 

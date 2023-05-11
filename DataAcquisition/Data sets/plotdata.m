@@ -1,0 +1,1 @@
+plot(collDetectDataAqf15.CartPosMsr1_Z)
