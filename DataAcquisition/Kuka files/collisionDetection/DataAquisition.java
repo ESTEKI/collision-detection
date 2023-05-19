@@ -137,7 +137,7 @@ public class DataAquisition extends RoboticsAPIApplication {
         
         
         Calendar myCalendar = Calendar.getInstance();
-        String dateTime = "6May2023"+
+        String dateTime = "13May2023"+
         		"_" + String.valueOf(Calendar.HOUR_OF_DAY)+ String.valueOf(myCalendar.get(Calendar.MINUTE) ) + String.valueOf(myCalendar.get(Calendar.SECOND) ) ;
 
         		//String.valueOf(myCalendar.get(Calendar.YEAR) )+String.valueOf(myCalendar.get(Calendar.MONTH) )+ String.valueOf(myCalendar.get(Calendar.DAY_OF_MONTH) )+
@@ -164,16 +164,15 @@ public class DataAquisition extends RoboticsAPIApplication {
         else {
         	desiredForce = -15;
         }
-        Date dd = new Date();
         
         getLogger().info( String.valueOf( myCalendar.get(Calendar.DAY_OF_MONTH) ));
         
         getLogger().info("collDetect_DataAq_f" + String.valueOf( Math.abs(desiredForce) )+ 
         		"N_CollType"+ collisionType + dateTime +".log" );
         
-        DataRecorder rec = new DataRecorder("collDetect_DataAq_f" + String.valueOf( df.format(Math.abs(desiredForce)) )+ 
+        DataRecorder rec = new DataRecorder("collDetect_DataAq_f" + String.valueOf( Math.abs(desiredForce) )+ 
         		"N_CollType"+ collisionType + dateTime +".log", -1,
-				TimeUnit.SECONDS, 1);
+				TimeUnit.SECONDS, 2);
 		//rec.setFileName("sampleCartesianImp");
 		rec.addCurrentJointPosition(lbr14, AngleUnit.Degree);// joint position
 		rec.addExternalJointTorque(lbr14);						// Joint torque 
@@ -192,10 +191,10 @@ public class DataAquisition extends RoboticsAPIApplication {
 		
 		
         // Path specs
-        final double TOTAL_CIRCULAR_PATH_TIME=12.0; //In seconds
+        final double TOTAL_CIRCULAR_PATH_TIME=10.0; //In seconds
         final double FREQENCY = 1.0/TOTAL_CIRCULAR_PATH_TIME;
         final double AMPLITUDE = 150;// Circular path Radius (mm). MAX =150. 
-        final double TOTAL_LOOPTIME = 60;
+        final double TOTAL_LOOPTIME = 120;
 		mediaflange.setLEDBlue(true);
 
         try
